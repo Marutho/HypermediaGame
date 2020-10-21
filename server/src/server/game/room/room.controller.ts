@@ -5,9 +5,8 @@ import { Room } from './room.model';
 @Service()
 export class RoomController {
 
-  constructor(
-
-  ) {
+  constructor() {
+    //To-Do
   }
 
   /**
@@ -20,6 +19,12 @@ export class RoomController {
    * @param next 
    */
   create(req, res, next) {
+
+    if (req.body)
+    {
+      
+    }
+
     //if (req.body) {
     //  const company = req.body;
     //  this.companyService.create(company)
