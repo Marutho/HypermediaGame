@@ -1,13 +1,13 @@
 import { Router } from 'express';
 import { Service } from 'typedi';
-import { RoomController } from '../game/room/room.controller';
+import { GameController } from '../game/game/game.controller';
 
 
 @Service()
 export class Api {
   private apiRouter: Router;
 
-  constructor(private roomController: RoomController
+  constructor(private gameController: GameController
   ) {
     this.initRouterAndSetApiRoutes();
   }
@@ -19,35 +19,29 @@ export class Api {
   private initRouterAndSetApiRoutes(): void {
     this.apiRouter = Router();
 
-    //setRoutes
-    //COMPANY TYPES 
     this.apiRouter.get(
       '/start',
-      (req, res, next) => this.roomController.goToStart(req, res, next)
+      (req, res, next) => this.gameController.startGame(req, res, next)
     );
 
-
-    //COMPANIES
     this.apiRouter.post(
-      '/companies',
-      (req, res, next) => this.roomController.create(req, res, next)
+      '/room/:id/forward',
+      (req, res, next) => this.gameController.forward(req, res, next)
     );
 
-    this.apiRouter.get(
-      '/companies/:id',
-      (req, res, next) => this.roomController.getById(req, res, next)
+    this.apiRouter.post(
+      '/room/:id/right',
+      (req, res, next) => this.gameController.right(req, res, next)
     );
 
-    this.apiRouter.put(
-      '/companies/:id',
-      (req, res, next) => this.roomController.update(req, res, next)
+    this.apiRouter.post(
+      '/room/:id/left',
+      (req, res, next) => this.gameController.left(req, res, next)
     );
 
-    this.apiRouter.delete(
-      '/companies/:id',
-      (req, res, next) => this.roomController.delete(req, res, next)
+    this.apiRouter.post(
+      '/room/:id/back',
+      (req, res, next) => this.gameController.back(req, res, next)
     );
-
   }
-
 }

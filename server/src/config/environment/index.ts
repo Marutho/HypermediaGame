@@ -22,8 +22,6 @@ export const config: any = merge(all, _getEnvironmentConfig());
 function _getEnvironmentConfig() {
   if (process.env.NODE_ENV === 'development') {
     return development;
-  } else if (process.env.NODE_ENV === 'test') {
-    return test;
   } else {
     return {};
   }

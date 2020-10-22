@@ -1,7 +1,11 @@
-export interface game_item {
+
+export class GameItem {
   id: number;
   name: string;
   description: string;
   quantity: number;
-  hasBeenUsed: boolean;
+
+  constructor(){
+    
+  }
 }
