@@ -1,0 +1,15 @@
+{
+  "id": 1,
+  "text": "This is a text example",
+  "options": ["Left","Front","Right"],
+  "op_number": [2, 3, 4],
+  "inventory": [
+    {
+      "id": 1,
+      "name": "Luis",
+      "description": "Le gusta tocarse el pito",
+      "quantity": 1,
+      "hasBeenUsed": false 
+    }
+  ]
+}
