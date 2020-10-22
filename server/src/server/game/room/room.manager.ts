@@ -6,17 +6,17 @@ export class RoomManager
   }
 
   generateRooms() {
-    this.rooms[0] = this.createRoom(0, 100, "This is the starting room.", ["Left", "Forward", "Right"], [])
+    this.rooms[0] = this.createRoom(0, "This is the starting room.", ["Left", "Forward", "Right"],[1,2,3], [])
   }
 
-  createRoom(_id, st_code, txt, opt, invent){
+  createRoom(_id, txt, opt, opt_n, invent){
     let rm: Room;
     
     return rm = {
       id: _id,
-      state_code: st_code,
       text: txt,
       options: opt,
+      op_number: opt_n,
       inventory: invent
     };
   }
