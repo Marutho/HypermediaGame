@@ -8,17 +8,15 @@ const rl = readline.createInterface({
 });
 
 var welcome = '\nWelcome to our game\n----THE BEST GAME EVER---\n';
+var api_ep = "http://localhost:8080/api";
+var game;
 
-var options = [
-  "http://localhost:8080/api/start",
-  "https://youtube.com",
-  "https://reddit.com"
-];
+var options = [];
 
 var waiting = false;
 
 console.log(welcome);
-printOptions();
+request(api_ep+"/start", responseReceived);
 
 rl.on('line',processAnswer)
 .on('close', close);
@@ -36,13 +34,16 @@ function processAnswer(answer){
           if(option < options.length && option >= 0)
           {
             optionSelected(answer);
+            process.stdout.write('\x1Bc');
           }
           else{
+            process.stdout.write('\x1Bc');
             console.log(`Say what? I might have heard '${answer.trim()}'`);
             printOptions();
           }      
         }
         catch(err){
+          process.stdout.write('\x1Bc');
           console.log(`Say what? I might have heard '${answer.trim()}'`);
           printOptions();
         }      
@@ -52,47 +53,25 @@ function processAnswer(answer){
 }
 
 function printOptions(){
-  console.log("\nPlease select one of the given options\n");
-
+  console.log("\nPlease select one of the given options (exit to quit)\n");
   for (let index = 0; index < options.length; index++) {
     const element = options[index];
     console.log(`${index} - ${element}`)
   }
+
   rl.prompt();
 }
 
 function optionSelected(option){
-  waiting = true;
-  request(options[option], responseReceived); 
+  request.post(api_ep+"/room/"+game.currentRoom.id+"/"+options[option],{form:JSON.stringify(game.player)}, responseReceived);
 }
 
 
-function responseReceived(error, response, body){
-  if(!waiting) return;
-  
+function responseReceived(erro, response, body){  
   waiting = false;
-  
-  console.log(response.statusCode) // 200
-  console.log(response.headers['content-type']) // 'image/png'
-
-  let json = JSON.parse(body); // Room into JSON
-
-  console.log(json)
+  game = JSON.parse(body);
+  options = game.currentRoom.options;
   printOptions();  
-}
-
-function errorReceived(err){
-  if(!waiting)return;
-  waiting = false;
-  console.log("There has been an error, please try again\n");
-  printOptions();
-}
-
-function timeoutReceived(err){
-  if(!waiting)return;
-  waiting = false;
-  console.log("Server not responding, please try again\n");
-  printOptions();
 }
 
 function close(){
