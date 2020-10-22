@@ -1,6 +1,7 @@
 export interface game_item {
-    id: number;
-    name: string;
-    description: string;
-    quantity: number;
+  id: number;
+  name: string;
+  description: string;
+  quantity: number;
+  hasBeenUsed: boolean;
 }
