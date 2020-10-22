@@ -68,25 +68,10 @@ function optionSelected(option){
 
 
 function responseReceived(erro, response, body){  
-
   waiting = false;
   game = JSON.parse(body);
   options = game.currentRoom.options;
   printOptions();  
-}
-
-function errorReceived(err){
-  if(!waiting)return;
-  waiting = false;
-  console.log("There has been an error, please try again\n");
-  printOptions();
-}
-
-function timeoutReceived(err){
-  if(!waiting)return;
-  waiting = false;
-  console.log("Server not responding, please try again\n");
-  printOptions();
 }
 
 function close(){

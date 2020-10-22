@@ -40,7 +40,7 @@ export class GameController{
 
      forward(req, res, next) {
         if(req.params.id && req.body){
-            res.send(this.makeAction(req.params.id,"forward", req.body));
+            res.send(this.tryToGoTo(req.params.id,"forward", req.body));
         }
      }
 
@@ -56,7 +56,7 @@ export class GameController{
 
     left(req, res, next) {
         if(req.params.id && req.body){
-            res.send(this.makeAction(req.params.id,"left", req.body));
+            res.send(this.tryToGoTo(req.params.id,"left", req.body));
         }
      }
 
@@ -72,7 +72,7 @@ export class GameController{
 
     right(req, res, next) {
         if(req.params.id && req.body){
-            res.send(this.makeAction(req.params.id,"right", req.body));
+            res.send(this.tryToGoTo(req.params.id,"right", req.body));
         }
      }
 
@@ -88,11 +88,11 @@ export class GameController{
 
     back(req, res, next) {
         if(req.params.id && req.body){
-            res.send(this.makeAction(req.params.id,"back", req.body));
+            res.send(this.tryToGoTo(req.params.id,"back", req.body));
         }
      }
 
-     makeAction(id, option, player){
+     tryToGoTo(id, option, player){
         var index = this.map[id].options.indexOf(option);
         if(index >= 0){
             var r = this.map[this.map[id].neighbours[index]];
