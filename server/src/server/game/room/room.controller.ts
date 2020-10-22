@@ -1,12 +1,13 @@
 import { Service } from 'typedi';
+import { RoomManager } from './room.manager';
 import { Room } from './room.model';
 
 
 @Service()
 export class RoomController {
 
-  constructor() {
-    //To-Do
+  constructor(private roomManager : RoomManager) {
+    this.roomManager.generateRooms()
   }
 
   /**
@@ -38,13 +39,14 @@ export class RoomController {
   }
 
   /**
-   * @api GET /companies
+   * @api GET /start
    * 
    * @param req
    * @param res 
    * @param next 
    */
-  getAll(req, res, next) {
+  goToStart(req, res, next) {
+    res.send(this.roomManager.getRoom(0));
     //this.companyService.findAll()
     //  .then((companyList:Company[])=> {
     //    res.send(companyList);

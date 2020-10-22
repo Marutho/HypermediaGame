@@ -9,8 +9,7 @@ export class RoomManager
     this.rooms[0] = this.createRoom(0, 100, "This is the starting room.", ["Left", "Forward", "Right"], [])
   }
 
-  createRoom(_id, st_code, txt, opt, invent)
-  {
+  createRoom(_id, st_code, txt, opt, invent){
     let rm: Room;
     
     return rm = {
@@ -20,5 +19,9 @@ export class RoomManager
       options: opt,
       inventory: invent
     };
+  }
+
+  getRoom(_id){
+    return this.rooms[_id];
   }
 }

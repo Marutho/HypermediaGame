@@ -22,8 +22,8 @@ export class Api {
     //setRoutes
     //COMPANY TYPES 
     this.apiRouter.get(
-      '/company_types',
-      (req, res, next) => this.roomController.getAll(req, res, next)
+      '/start',
+      (req, res, next) => this.roomController.goToStart(req, res, next)
     );
 
 

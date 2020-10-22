@@ -3,4 +3,4 @@ export interface game_item {
     name: string;
     description: string;
     quantity: number;
-  }
+}
