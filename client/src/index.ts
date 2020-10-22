@@ -10,7 +10,7 @@ const rl = readline.createInterface({
 var welcome = '\nWelcome to our game\n----THE BEST GAME EVER---\n';
 
 var options = [
-  "https://google.com",
+  "http://localhost:8080/api/start",
   "https://youtube.com",
   "https://reddit.com"
 ];
@@ -53,6 +53,7 @@ function processAnswer(answer){
 
 function printOptions(){
   console.log("\nPlease select one of the given options\n");
+
   for (let index = 0; index < options.length; index++) {
     const element = options[index];
     console.log(`${index} - ${element}`)
@@ -62,18 +63,21 @@ function printOptions(){
 
 function optionSelected(option){
   waiting = true;
-  request
-  .get(options[option], {timeout : 1500}, timeoutReceived)
-  .on('response', responseReceived)
-  .on('error', errorReceived);
+  request(options[option], responseReceived); 
 }
 
 
-function responseReceived(response){
-  if(!waiting)return;
+function responseReceived(error, response, body){
+  if(!waiting) return;
+  
   waiting = false;
+  
   console.log(response.statusCode) // 200
   console.log(response.headers['content-type']) // 'image/png'
+
+  let json = JSON.parse(body); // Room into JSON
+
+  console.log(json)
   printOptions();  
 }
 

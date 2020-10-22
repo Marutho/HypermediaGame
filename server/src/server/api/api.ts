@@ -34,11 +34,6 @@ export class Api {
     );
 
     this.apiRouter.get(
-      '/companies',
-      (req, res, next) => this.roomController.getAll(req, res, next)
-    );
-
-    this.apiRouter.get(
       '/companies/:id',
       (req, res, next) => this.roomController.getById(req, res, next)
     );
