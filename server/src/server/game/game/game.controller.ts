@@ -9,10 +9,10 @@ export class GameController{
 
     constructor() {
         this.map = [
-            new Room(0,"start room", ["forward", "right", "left"],[1,2,3],[true, false, false],[]),
-            new Room(1,"room 1", ["back"],[0],[false],[new GameItem("coin", "Is a gold coin",1)]),
-            new Room(2,"room 2", ["left"],[0],[false],[]),
-            new Room(3,"room 3", ["right"],[0],[false],[new GameItem("key", "Is a simple key", 0)])
+            // new Room(0,"start room", ["forward", "right", "left"],[1,2,3],[true, false, false],[]),
+            // new Room(1,"room 1", ["back"],[0],[false],[new GameItem("coin", "Is a gold coin",1)]),
+            // new Room(2,"room 2", ["left"],[0],[false],[]),
+            // new Room(3,"room 3", ["right"],[0],[false],[new GameItem("key", "Is a simple key", 0)])
         ];
     }
 

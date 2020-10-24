@@ -1,0 +1,157 @@
+{
+    "Rooms": [
+        { 
+            "id":"0",
+            "text": " Hello traveler! Start your adventure, where would you like to start exploring?",
+            "options": ["Right", "Left"] ,
+            "neighbours": [1,2] ,
+            "doors": [false, false],
+            "inventory": []
+        },
+        { 
+            "id":"1",
+            "text": "You have found two coins! There seems to be no more place to explore around here.",
+            "options": ["Left"] ,
+            "neighbours": [0] ,
+            "doors": [false],
+            "inventory": ["2$ Coin", "Is a gold coin", 1, 2]
+        },
+        { 
+            "id":"2",
+            "text": "You have found two coins! There seems to be no more place to explore around here.",
+            "options": ["Right"] ,
+            "neighbours": [0] ,
+            "doors": [false],
+            "inventory": ["2$ Coin", "Is a gold coin", 1, 2]
+        },
+        { 
+            "id":"3",
+            "text": " You have found one coin! Where do we continue the adventure?",
+            "options": ["Up", "Right. You see a chest shining, under the fog", "Left", "Down"] ,
+            "neighbours": [7,4,5,3] ,
+            "doors": [false, false, false, false],
+            "inventory": ["1$ Coin", "Is a gold coin", 1, 1]
+        },
+        { 
+            "id":"4",
+            "text": "The chest was poisoned and you notice how you lose consciousness little by little ... \nGAME OVER",
+            "options": ["Start New Game"] ,
+            "neighbours": [0] ,
+            "doors": [false],
+            "inventory": []
+        },
+        { 
+            "id":"5",
+            "text": "You have found one coin! You see in front how something shines under a flower, what are you doing?",
+            "options": ["Up", "Right"] ,
+            "neighbours": [6,3] ,
+            "doors": [false, false],
+            "inventory": ["1$ Coin", "Is a gold coin", 1, 1]
+        },
+        { 
+            "id":"6",
+            "text": " You have found a key! It will be perfect to go through blocked roads! There seems to be no more place to explore around here.",
+            "options": ["Down"] ,
+            "neighbours": [5] ,
+            "doors": [false],
+            "inventory": ["Key", "Is a Key!!", 0, 1]
+        },
+        { 
+            "id":"7",
+            "text": "You have found one coin! Where do we continue the adventure?",
+            "options": ["Up, Right"] ,
+            "neighbours": [11, 8] ,
+            "doors": [false, false],
+            "inventory": ["1$ Coin", "Is a gold coin", 1, 1]
+        },
+        { 
+            "id":"8",
+            "text": "You have found three coins! Where do we continue the adventure?",
+            "options": ["Up", "Right. You see a diamond under a giant plant", "Left"] ,
+            "neighbours": [10, 9, 7] ,
+            "doors": [false, false, false],
+            "inventory": ["3$ Coin", "Is a gold coin", 1, 3]
+        },
+        { 
+            "id":"9",
+            "text": "A carnivorous plant kills you without mercy as soon as you step on the room.\nGAME OVER",
+            "options": ["Up"] ,
+            "neighbours": [0] ,
+            "doors": [false],
+            "inventory": []
+        },
+        { 
+            "id":"10",
+            "text": "You have found a key! It will be perfect to go through blocked roads! There seems to be no more place to explore around here.",
+            "options": ["Down"] ,
+            "neighbours": [8] ,
+            "doors": [false],
+            "inventory": ["Key", "Is a Key!!", 0, 1]
+        },
+        { 
+            "id":"11",
+            "text": "You have found one coin! Where do we continue the adventure?",
+            "options": ["Left.  The road is blocked, you can only pass if you have a key", "Right", "Down"] ,
+            "neighbours": [12,13] ,
+            "doors": [true, false],
+            "inventory": ["1$ Coin", "Is a gold coin", 1, 1]
+        },
+        { 
+            "id":"12",
+            "text": "YOU HAVE FOUND A TREASURE! You get 10 coins. There seems to be no more place to explore around here.",
+            "options": ["Right"] ,
+            "neighbours": [11] ,
+            "doors": [false],
+            "inventory": [["10$ COIN!!", "Is a diamond!!!", 1, 10]]
+        },
+        { 
+            "id":"13",
+            "text": "You have found one coin! Where do we continue the adventure?",
+            "options": ["Right", "Left"] ,
+            "neighbours": [11, 14] ,
+            "doors": [false, false],
+            "inventory": ["1$ Coin", "Is a gold coin", 1, 1]
+        },
+        { 
+            "id":"14",
+            "text": "You have found one coin! Where do we continue the adventure?",
+            "options": ["Down", "Right", "Left"] ,
+            "neighbours": [15, 16, 13] ,
+            "doors": [false, false, false],
+            "inventory": [["1$ Coin", "Is a gold coin", 1, 1]]
+        },
+        { 
+            "id":"15",
+            "text": "What a loot! 5 more coins for the collection. There seems to be no more place to explore around here.",
+            "options": ["Up"] ,
+            "neighbours": [14] ,
+            "doors": [false],
+            "inventory": [["5$ Coin", "Is a platinum coin", 1, 5]]
+        },
+        { 
+            "id":"16",
+            "text": " Nice! 4 more coins for the collection. There seems to be no more place to explore around here.",
+            "options": ["Down. The road is blocked, you can only pass if you have a key, you see a lot of fog through the bolt", 
+            "Right. The road is blocked, you can only pass if you have a key, you smell earthy smell behind this door",
+            "Left"] ,
+            "neighbours": [1,2,3] ,
+            "doors": [true, true, false],
+            "inventory": [["4$ coin", "Is a gold coin", 1, 4]]
+        },
+        { 
+            "id":"17",
+            "text": "You see the shadow of a ghost warrior, who quickly throws his sword and pierces your head. You were close to escaping but ... \nGAME OVER",
+            "options": ["Start New Game"] ,
+            "neighbours": [0] ,
+            "doors": [false],
+            "inventory": []
+        },
+        { 
+            "id":"18",
+            "text": "YOU HAVE ESCAPED THE DUNGEON WITH ALL THIS LOOT: X COINS, CONGRATULATIONS!",
+            "options": ["Start New Game"] ,
+            "neighbours": [0] ,
+            "doors": [false],
+            "inventory": []
+        }]
+}
