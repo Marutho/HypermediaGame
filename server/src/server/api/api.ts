@@ -24,6 +24,11 @@ export class Api {
       (req, res, next) => this.gameController.startGame(req, res, next)
     );
 
+    this.apiRouter.get(
+      '/inventory',
+      (req, res, next) => this.gameController.showInventory(req, res, next)
+    );
+
     this.apiRouter.post(
       '/room/:id/forward',
       (req, res, next) => this.gameController.forward(req, res, next)

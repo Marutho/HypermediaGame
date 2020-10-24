@@ -11,12 +11,19 @@ var welcome = '\nWelcome to our game\n----THE BEST GAME EVER---\n';
 var api_ep = "http://localhost:8080/api";
 var game;
 
-var options = [];
-
 var waiting = false;
-
+process.stdout.write('\x1Bc');
 console.log(welcome);
-request(api_ep+"/start", responseReceived);
+request(api_ep+"/start", (erro, response, body) => {
+  if(response.statusCode != 200){
+    console.log("There has been an error, please try again\n");
+  }
+  else{
+    game = JSON.parse(body);
+  }
+  
+  printOptions();  
+});
 
 rl.on('line',processAnswer)
 .on('close', close);
@@ -31,9 +38,9 @@ function processAnswer(answer){
       default:
         try{
           var option = parseInt(answer);
-          if(option < options.length && option >= 0)
+          if(option < game.options.length && option >= 0)
           {
-            optionSelected(answer);
+            optionSelected(option);
             process.stdout.write('\x1Bc');
           }
           else{
@@ -53,24 +60,43 @@ function processAnswer(answer){
 }
 
 function printOptions(){
+  console.log(game.message);
   console.log("\nPlease select one of the given options (exit to quit)\n");
-  for (let index = 0; index < options.length; index++) {
-    const element = options[index];
-    console.log(`${index} - ${element}`)
+  var index = 0;
+  for( let key of game.options){    
+    console.log(`${index} - ${key}`);
+    index++;
   }
 
   rl.prompt();
 }
 
 function optionSelected(option){
-  request.post(api_ep+"/room/"+game.currentRoom.id+"/"+options[option],{form:JSON.stringify(game.player)}, responseReceived);
+  let options = {
+    url : api_ep+game.endpoints[option],
+    method: game.methods[option],
+    json : true,
+    body : game.player
+  }
+  request(options, responseReceived);  
 }
 
 
 function responseReceived(erro, response, body){  
   waiting = false;
-  game = JSON.parse(body);
-  options = game.currentRoom.options;
+  if(response.statusCode != 200){
+    console.log("There has been an error, please try again\n");
+  }
+  else{
+    if(body.options.length > 0)
+      {
+        game = body;
+      }
+      else{
+        game.message = body.message;
+      }
+  }
+  
   printOptions();  
 }
 
