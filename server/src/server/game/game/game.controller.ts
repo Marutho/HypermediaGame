@@ -8,12 +8,38 @@ export class GameController{
     map : Room[];
 
     constructor() {
-        this.map = [
-            // new Room(0,"start room", ["forward", "right", "left"],[1,2,3],[true, false, false],[]),
-            // new Room(1,"room 1", ["back"],[0],[false],[new GameItem("coin", "Is a gold coin",1)]),
-            // new Room(2,"room 2", ["left"],[0],[false],[]),
-            // new Room(3,"room 3", ["right"],[0],[false],[new GameItem("key", "Is a simple key", 0)])
-        ];
+        
+        const newMap = require('./Map.json');
+        this.map = [];
+        for(let i =0;i<newMap.Rooms.length;i++)
+        {
+            if(newMap.Rooms[i].inventory.length != 0)
+            {
+                this.map.push(new Room(newMap.Rooms[i].id,
+                    newMap.Rooms[i].text,
+                    newMap.Rooms[i].options,
+                    newMap.Rooms[i].neighbours,
+                    newMap.Rooms[i].doors,
+                    [new GameItem(newMap.Rooms[i].inventory[0], newMap.Rooms[i].inventory[1], newMap.Rooms[i].inventory[2], newMap.Rooms[i].inventory[3])]));
+            }
+            else
+            {
+                this.map.push(new Room(newMap.Rooms[i].id,
+                    newMap.Rooms[i].text,
+                    newMap.Rooms[i].options,
+                    newMap.Rooms[i].neighbours,
+                    newMap.Rooms[i].doors,
+                    []));
+            }
+        }
+         console.log(this.map);
+        // this.map = [
+        //     new Room(0,"start room", ["forward", "right", "left"],[1,2,3],[true, false, false],[]),
+        //     new Room(1,"room 1", ["back"],[0],[false],[new GameItem("coin", "Is a gold coin",1,0)]),
+        //     new Room(2,"room 2", ["left"],[0],[false],[]),
+        //     new Room(3,"room 3", ["right"],[0],[false],[new GameItem("key", "Is a simple key", 0,0)])
+        // ];
+        // console.log(this.map);
     }
 
     /**
