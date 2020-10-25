@@ -183,6 +183,17 @@ export class GameController{
                 this.addToInventory(player, item);   
                 message += `\nYou have found a ${item.name}\n`;
             }
+            if(room.options.indexOf("restart")<0){
+                //Player has reach the end 
+                let coins = 0;
+                for (let index = 0; index < player.inventory.length; index++) {
+                    const element = player.inventory[index];
+                    if(element.type == 1){
+                        coins += element.value;
+                    }
+                }
+                message += `\n You have collected ${coins}`;
+            }
         }
         else
         {
