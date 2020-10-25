@@ -50,11 +50,11 @@
         },
         { 
             "id":6,
-            "text": " You have found a key! It will be perfect to go through blocked roads! There seems to be no more place to explore around here.",
+            "text": "There seems to be no more place to explore around here.",
             "options": ["down"] ,
             "neighbours": [5] ,
             "doors": [false],
-            "inventory": ["Key", "Is a Key!!", 0, 1]
+            "inventory": ["Key", "It will be perfect to go through blocked roads!", 0, 1]
         },
         { 
             "id":7,
@@ -82,11 +82,11 @@
         },
         { 
             "id":10,
-            "text": "You have found a key! It will be perfect to go through blocked roads! There seems to be no more place to explore around here.",
+            "text": "It will be perfect to go through blocked roads! There seems to be no more place to explore around here.",
             "options": ["down"] ,
             "neighbours": [8] ,
             "doors": [false],
-            "inventory": ["Key", "Is a Key!!", 0, 1]
+            "inventory": ["Key", "It will be perfect to go through blocked roads!", 0, 1]
         },
         { 
             "id":11,
