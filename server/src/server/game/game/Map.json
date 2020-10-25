@@ -10,7 +10,7 @@
         },
         { 
             "id":1,
-            "text": "You have found two coins! There seems to be no more place to explore around here.",
+            "text": "There seems to be no more place to explore around here.",
             "options": ["left"] ,
             "neighbours": [0] ,
             "doors": [false],
@@ -18,7 +18,7 @@
         },
         { 
             "id":2,
-            "text": "You have found two coins! There seems to be no more place to explore around here.",
+            "text": "There seems to be no more place to explore around here.",
             "options": ["right"] ,
             "neighbours": [0] ,
             "doors": [false],
@@ -26,7 +26,7 @@
         },
         { 
             "id":3,
-            "text": " You have found one coin! Where do we continue the adventure?",
+            "text": " Where do we continue the adventure?",
             "options": ["up", "right. You see a chest shining, under the fog", "left", "down"] ,
             "neighbours": [7,4,5,3] ,
             "doors": [false, false, false, false],
@@ -34,7 +34,7 @@
         },
         { 
             "id":4,
-            "text": "The chest was poisoned and you notice how you lose consciousness little by little ... \nGAME OVEr",
+            "text": "The chest was poisoned and you notice how you lose consciousness little by little ... \nGAME OVER",
             "options": ["restart"] ,
             "neighbours": [0] ,
             "doors": [false],
@@ -42,7 +42,7 @@
         },
         { 
             "id":5,
-            "text": "You have found one coin! You see in front how something shines under a flower, what are you doing?",
+            "text": "You see in front how something shines under a flower, what are you doing?",
             "options": ["up", "right"] ,
             "neighbours": [6,3] ,
             "doors": [false, false],
@@ -58,7 +58,7 @@
         },
         { 
             "id":7,
-            "text": "You have found one coin! Where do we continue the adventure?",
+            "text": "Where do we continue the adventure?",
             "options": ["up", "right"] ,
             "neighbours": [11, 8] ,
             "doors": [false, false],
@@ -66,15 +66,15 @@
         },
         { 
             "id":8,
-            "text": "You have found three coins! Where do we continue the adventure?",
-            "options": ["up", "right. You see a diamond under a giant plant", "left"] ,
+            "text": "Where do we continue the adventure? \nYou see a diamond under a giant plant to the right",
+            "options": ["up", "right", "left"] ,
             "neighbours": [10, 9, 7] ,
             "doors": [false, false, false],
-            "inventory": ["3$ Coin", "Is a gold coin", 1, 3]
+            "inventory": ["3$ Coin", "Is a big gold coin", 1, 3]
         },
         { 
             "id":9,
-            "text": "A carnivorous plant kills you without mercy as soon as you step on the room.\nGAME OVEr",
+            "text": "A carnivorous plant kills you without mercy as soon as you step on the room.\nGAME OVER",
             "options": ["up"] ,
             "neighbours": [0] ,
             "doors": [false],
@@ -82,7 +82,7 @@
         },
         { 
             "id":10,
-            "text": "It will be perfect to go through blocked roads! There seems to be no more place to explore around here.",
+            "text": "There seems to be no more place to explore around here.",
             "options": ["down"] ,
             "neighbours": [8] ,
             "doors": [false],
@@ -90,15 +90,15 @@
         },
         { 
             "id":11,
-            "text": "You have found one coin! Where do we continue the adventure?",
-            "options": ["left.  The road is blocked, you can only pass if you have a key", "right", "down"] ,
-            "neighbours": [12,13,7] ,
-            "doors": [true, false,false],
+            "text": "Where do we continue the adventure? The road is blocked to the left, you can only pass if you have a key",
+            "options": ["right", "left", "down"] ,
+            "neighbours": [13, 12, 7] ,
+            "doors": [false, true, false],
             "inventory": ["1$ Coin", "Is a gold coin", 1, 1]
         },
         { 
             "id":12,
-            "text": "YOu HAVE FOuNd A TrEASurE! You get 10 coins. There seems to be no more place to explore around here.",
+            "text": "YOU HAVE FOUND A TREASURE! There seems to be no more place to explore around here.",
             "options": ["right"] ,
             "neighbours": [11] ,
             "doors": [false],
@@ -106,7 +106,7 @@
         },
         { 
             "id":13,
-            "text": "You have found one coin! Where do we continue the adventure?",
+            "text": "Where do we continue the adventure?",
             "options": ["right", "left"] ,
             "neighbours": [14, 11] ,
             "doors": [false, false],
@@ -114,15 +114,15 @@
         },
         { 
             "id":14,
-            "text": "You have found one coin! Where do we continue the adventure?",
-            "options": ["down", "right", "left"] ,
-            "neighbours": [15, 16, 13] ,
+            "text": "Where do we continue the adventure?",
+            "options": ["right", "left", "down"] ,
+            "neighbours": [16, 13, 15] ,
             "doors": [false, false, false],
             "inventory": ["1$ Coin", "Is a gold coin", 1, 1]
         },
         { 
             "id":15,
-            "text": "What a loot! 5 more coins for the collection. There seems to be no more place to explore around here.",
+            "text": "What a loot!. There seems to be no more place to explore around here.",
             "options": ["up"] ,
             "neighbours": [14] ,
             "doors": [false],
@@ -130,17 +130,18 @@
         },
         { 
             "id":16,
-            "text": " Nice! 4 more coins for the collection. There seems to be no more place to explore around here.",
-            "options": ["down. The road is blocked, you can only pass if you have a key, you see a lot of fog through the bolt", 
-            "right. The road is blocked, you can only pass if you have a key, you smell earthy smell behind this door",
-            "left"] ,
-            "neighbours": [18,17,14] ,
-            "doors": [true, true, false],
+            "text": "It seems the final of the game. Where we go?\nThe road is blocked to the right, you can only pass if you have a key, you smell earthy smell behind this door\nThe road is blocked to the bottom, you can only pass if you have a key, you see a lot of fog through the bolt.",
+            "options": [
+            "right",
+            "left",
+            "down"],
+            "neighbours": [17,14, 18] ,
+            "doors": [true, false, true],
             "inventory": ["4$ coin", "Is a gold coin", 1, 4]
         },
         { 
             "id":17,
-            "text": "You see the shadow of a ghost warrior, who quickly throws his sword and pierces your head. You were close to escaping but ... \nGAME OVEr",
+            "text": "You see the shadow of a ghost warrior, who quickly throws his sword and pierces your head. You were close to escaping but ... \nGAME OVER",
             "options": ["restart"] ,
             "neighbours": [0] ,
             "doors": [false],
@@ -148,7 +149,7 @@
         },
         { 
             "id":18,
-            "text": "YOu HAVE ESCAPEd THE duNGEON WITH All THIS lOOT: X COINS, CONGrATulATIONS!",
+            "text": "YOU HAVE ESCAPED THE DUNGEON WITH All THIS LOOT: X COINS, CONGRATULATIONS!",
             "options": ["restart"] ,
             "neighbours": [0] ,
             "doors": [false],
