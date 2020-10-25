@@ -18,8 +18,14 @@ export class Game{
             for (index; index < room.options.length; index++) {
                 const element = room.options[index];
                 this.options[index] = element;
-                this.endpoints[index] =  `/room/${room.id}/${element}`;   
-                this.methods[index] = "POST";
+                if(element == "restart"){
+                    this.endpoints[index] =  `/restart`;   
+                    this.methods[index] = "GET";
+                }
+                else{
+                    this.endpoints[index] =  `/room/${room.id}/${element}`;   
+                    this.methods[index] = "POST";
+                }
             }
             this.options[index] = "inventory";
             this.endpoints[index] =  `/inventory`;

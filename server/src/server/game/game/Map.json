@@ -26,8 +26,8 @@
         },
         { 
             "id":3,
-            "text": " Where do we continue the adventure?",
-            "options": ["up", "right. You see a chest shining, under the fog", "left", "down"] ,
+            "text": " Where do we continue the adventure? You see a chest shining to the right, under the fog",
+            "options": ["up", "right", "left", "down"] ,
             "neighbours": [7,4,5,3] ,
             "doors": [false, false, false, false],
             "inventory": ["1$ Coin", "Is a gold coin", 1, 1]
@@ -149,7 +149,7 @@
         },
         { 
             "id":18,
-            "text": "YOU HAVE ESCAPED THE DUNGEON WITH All THIS LOOT: X COINS, CONGRATULATIONS!",
+            "text": "YOU HAVE ESCAPED THE DUNGEON WITH All THIS LOOT, CONGRATULATIONS!",
             "options": ["restart"] ,
             "neighbours": [0] ,
             "doors": [false],

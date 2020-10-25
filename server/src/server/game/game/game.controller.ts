@@ -143,7 +143,7 @@ export class GameController{
                 var r = this.map[this.map[id].neighbours[index]];
                 var message = r.text;
                 if(locked){
-                    message = "There is a locked door.\nYou used a key from your inventory to open the door.\nThe key brokes after you open the door.\n";
+                    message = "There is a locked door.\nYou used a key from your inventory to open the door.\nThe key brokes after you open the door.\n" + message;
                 }
                 return this.checkRoom(player, r, message);
             }
@@ -163,7 +163,7 @@ export class GameController{
             for (let index = 0; index < player.inventory.length; index++) {
                 const item = player.inventory[index];
                 if(!item.used)
-                strInventory += `${item.name}`
+                strInventory += `${item.name}\n`
             }
           }
           else{
@@ -183,7 +183,7 @@ export class GameController{
                 this.addToInventory(player, item);   
                 message += `\nYou have found a ${item.name}\n`;
             }
-            if(room.options.indexOf("restart")<0){
+            if(room.options.indexOf("restart")>=0){
                 //Player has reach the end 
                 let coins = 0;
                 for (let index = 0; index < player.inventory.length; index++) {
@@ -192,7 +192,7 @@ export class GameController{
                         coins += element.value;
                     }
                 }
-                message += `\n You have collected ${coins}`;
+                message += `\n You have collected ${coins} coins`;
             }
         }
         else
