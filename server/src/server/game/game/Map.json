@@ -2,7 +2,7 @@
     "Rooms": [
         { 
             "id":0,
-            "text": " Hello traveler! Start your adventure, where would you like to start exploring?",
+            "text": "Hello traveler! Start your adventure, where would you like to start exploring?",
             "options": ["up", "right", "left"] ,
             "neighbours": [3,1,2] ,
             "doors": [false, false, false],
@@ -59,7 +59,7 @@
         { 
             "id":7,
             "text": "You have found one coin! Where do we continue the adventure?",
-            "options": ["up, right"] ,
+            "options": ["up", "right"] ,
             "neighbours": [11, 8] ,
             "doors": [false, false],
             "inventory": ["1$ Coin", "Is a gold coin", 1, 1]
@@ -92,8 +92,8 @@
             "id":11,
             "text": "You have found one coin! Where do we continue the adventure?",
             "options": ["left.  The road is blocked, you can only pass if you have a key", "right", "down"] ,
-            "neighbours": [12,13] ,
-            "doors": [true, false],
+            "neighbours": [12,13,7] ,
+            "doors": [true, false,false],
             "inventory": ["1$ Coin", "Is a gold coin", 1, 1]
         },
         { 
@@ -108,7 +108,7 @@
             "id":13,
             "text": "You have found one coin! Where do we continue the adventure?",
             "options": ["right", "left"] ,
-            "neighbours": [11, 14] ,
+            "neighbours": [14, 11] ,
             "doors": [false, false],
             "inventory": ["1$ Coin", "Is a gold coin", 1, 1]
         },
@@ -134,7 +134,7 @@
             "options": ["down. The road is blocked, you can only pass if you have a key, you see a lot of fog through the bolt", 
             "right. The road is blocked, you can only pass if you have a key, you smell earthy smell behind this door",
             "left"] ,
-            "neighbours": [1,2,3] ,
+            "neighbours": [18,17,14] ,
             "doors": [true, true, false],
             "inventory": ["4$ coin", "Is a gold coin", 1, 4]
         },

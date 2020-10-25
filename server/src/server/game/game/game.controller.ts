@@ -52,7 +52,7 @@ export class GameController{
      * @param next 
      */
     startGame(req, res, next) {
-        res.send(new Game(this.map[0], new Player(), "Here starts your adventure"));
+        res.send(new Game(this.map[0], new Player(), this.map[0].text));
     }
 
     /**
@@ -82,7 +82,7 @@ export class GameController{
 
      forward(req, res, next) {
         if(req.params.id && req.body){
-            res.send(this.tryToGoTo(req.params.id,"forward", req.body));
+            res.send(this.tryToGoTo(req.params.id,"up", req.body));
         }
      }
 
@@ -130,7 +130,7 @@ export class GameController{
 
     back(req, res, next) {
         if(req.params.id && req.body){
-            res.send(this.tryToGoTo(req.params.id,"back", req.body));
+            res.send(this.tryToGoTo(req.params.id,"down", req.body));
         }
      }
 
@@ -141,7 +141,7 @@ export class GameController{
             if(!locked || this.hasKey(player))
             {
                 var r = this.map[this.map[id].neighbours[index]];
-                var message = "";
+                var message = r.text;
                 if(locked){
                     message = "There is a locked door.\nYou used a key from your inventory to open the door.\nThe key brokes after you open the door.\n";
                 }
@@ -174,13 +174,19 @@ export class GameController{
       }
 
       checkRoom(player: Player, room: Room, message: string){
-        if(!player.history[room.id]){            
+        if(!player.history[room.id])
+        {            
             player.history[room.id] = true;
-            for (let index = 0; index < room.inventory.length; index++) {
+            for (let index = 0; index < room.inventory.length; index++)
+            {
                 var item = room.inventory[index];
                 this.addToInventory(player, item);   
-                message += `You have found a ${item.name}\n`;
+                message += `\nYou have found a ${item.name}\n`;
             }
+        }
+        else
+        {
+            message += "\nYou have already been here!";
         }
 
         return new Game(room, player, message);

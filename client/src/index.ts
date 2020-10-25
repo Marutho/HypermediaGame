@@ -59,6 +59,7 @@ function processAnswer(answer){
 }
 
 function printOptions(){
+  console.clear();
   console.log(game.message);
   console.log("\nPlease select one of the given options (exit to quit)\n");
   var index = 0;
