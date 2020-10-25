@@ -23,6 +23,10 @@ export class Api {
       '/start',
       (req, res, next) => this.gameController.startGame(req, res, next)
     );
+    this.apiRouter.get(
+      '/restart',
+      (req, res, next) => this.gameController.startGame(req, res, next)
+    );
 
     this.apiRouter.get(
       '/inventory',
@@ -30,7 +34,7 @@ export class Api {
     );
 
     this.apiRouter.post(
-      '/room/:id/forward',
+      '/room/:id/up',
       (req, res, next) => this.gameController.forward(req, res, next)
     );
 
@@ -45,7 +49,7 @@ export class Api {
     );
 
     this.apiRouter.post(
-      '/room/:id/back',
+      '/room/:id/down',
       (req, res, next) => this.gameController.back(req, res, next)
     );
   }

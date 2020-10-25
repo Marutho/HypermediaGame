@@ -11,7 +11,6 @@ var welcome = '\nWelcome to our game\n----THE BEST GAME EVER---\n';
 var api_ep = "http://localhost:8080/api";
 var game;
 
-var waiting = false;
 process.stdout.write('\x1Bc');
 console.log(welcome);
 request(api_ep+"/start", (erro, response, body) => {
@@ -83,7 +82,6 @@ function optionSelected(option){
 
 
 function responseReceived(erro, response, body){  
-  waiting = false;
   if(response.statusCode != 200){
     console.log("There has been an error, please try again\n");
   }
@@ -95,8 +93,7 @@ function responseReceived(erro, response, body){
       else{
         game.message = body.message;
       }
-  }
-  
+  }  
   printOptions();  
 }
 
