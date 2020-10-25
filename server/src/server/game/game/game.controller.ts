@@ -163,7 +163,7 @@ export class GameController{
             for (let index = 0; index < player.inventory.length; index++) {
                 const item = player.inventory[index];
                 if(!item.used)
-                strInventory += `${item.name}`
+                strInventory += `${item.name}` + `${item.description}`;
             }
           }
           else{
